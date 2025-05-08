@@ -15,28 +15,28 @@ import com.example.weatherapp.viewmodel.WeatherViewModel
 
 
 @Composable
-fun Navigation(startDestination: Screen, viewModel: WeatherViewModel = hiltViewModel()) {
+fun Navigation(viewModel: WeatherViewModel = hiltViewModel()) {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = startDestination.toString(),
+        startDestination = Screen.WeatherScreen.route,
         route = "main_graph"
     ) {
 
-        composable(Screen.WeatherScreen.toString()) {
+        composable(Screen.WeatherScreen.route) {
             WeatherScreen(
                 viewModel,
-                onSearchPressed = { navController.navigate(Screen.SearchScreen.toString()) },
-                onForecastReportPressed = {navController.navigate(Screen.ForecastReportScreen.toString())})
+                onSearchPressed = { navController.navigate(Screen.SearchScreen.route) },
+                onForecastReportPressed = {navController.navigate(Screen.ForecastReportScreen.route)})
         }
-        composable(Screen.SearchScreen.toString()) {
+        composable(Screen.SearchScreen.route) {
             SearchScreen(viewModel,
-                onSearchExited = { navController.navigate(Screen.WeatherScreen.toString()) },
-                onDataFetched = { navController.navigate(Screen.WeatherScreen.toString()) })
+                onSearchExited = { navController.navigate(Screen.WeatherScreen.route) },
+                onDataFetched = { navController.navigate(Screen.WeatherScreen.route) })
         }
-        composable(Screen.ForecastReportScreen.toString()) {
+        composable(Screen.ForecastReportScreen.route) {
             ForecastReportScreen(viewModel,
-                onBackPressed = {navController.navigate(Screen.WeatherScreen.toString())})
+                onBackPressed = {navController.navigate(Screen.WeatherScreen.route)})
         }
     }
 }

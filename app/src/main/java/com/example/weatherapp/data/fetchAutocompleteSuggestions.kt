@@ -1,7 +1,7 @@
+import android.util.Log
 import com.google.android.libraries.places.api.model.AutocompletePrediction
 import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest
-import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.TypeFilter
 
 fun fetchAutocompleteSuggestions(query: String, placesClient: PlacesClient, callback: (List<AutocompletePrediction>) -> Unit) {
@@ -18,6 +18,7 @@ fun fetchAutocompleteSuggestions(query: String, placesClient: PlacesClient, call
     placesClient.findAutocompletePredictions(request)
         .addOnSuccessListener { response ->
             callback(response.autocompletePredictions)
+            Log.d("Prediction", response.autocompletePredictions.toString())
         }
         .addOnFailureListener { exception ->
             exception.printStackTrace()

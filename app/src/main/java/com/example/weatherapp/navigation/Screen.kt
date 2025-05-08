@@ -1,7 +1,7 @@
 package com.example.weatherapp.navigation
 
 sealed class Screen(val route: String) {
-    object WeatherScreen : Screen("weather_screen")
-    object SearchScreen : Screen("serach_screen")
-    object ForecastReportScreen : Screen("forecast_screen")
+    data object WeatherScreen : Screen("weather_screen")
+    data object SearchScreen : Screen("serach_screen")
+    data object ForecastReportScreen : Screen("forecast_screen")
 }

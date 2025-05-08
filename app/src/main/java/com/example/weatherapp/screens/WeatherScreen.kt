@@ -154,7 +154,9 @@ fun WeatherScreenUI(
         var weather by remember {
             mutableStateOf(WeatherResponse())
         }
-        if (state is WeatherUiState.Success) {weather = state.weather} else WeatherResponse()
+        if (state is WeatherUiState.Success) {weather = state.weather
+            Log.d("ForecastReoprtWeatherScreen", weather.forecast.toString())
+        } else WeatherResponse()
         val screenHeight = maxHeight
         val screenWidth = maxWidth
         Column(

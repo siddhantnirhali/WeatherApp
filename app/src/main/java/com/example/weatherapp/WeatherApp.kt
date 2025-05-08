@@ -9,6 +9,6 @@ class WeatherApp: Application() {
     override fun onCreate() {
         super.onCreate()
         // Initialize Places SDK directly
-        Places.initialize(applicationContext, "AIzaSyBhytTwYT9Tq6hK6Q2enkbyVA9xPijQtrU")
+        Places.initialize(applicationContext, BuildConfig.LOCATION_API_KEY)
     }
 }

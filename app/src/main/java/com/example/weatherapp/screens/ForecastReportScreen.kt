@@ -57,6 +57,7 @@ fun ForecastReportScreenUI(state: WeatherUiState, onBackPressed: () -> Unit) {
     var currentTime by remember { mutableStateOf("") }
     val localFunctions = LocalFunctions()
 
+    Log.d("ForecastReoprt", weather.forecast.toString())
     when (state) {
         is WeatherUiState.Success -> {
             weather = state.weather
@@ -201,7 +202,11 @@ fun HourlyForecast(hour: WeatherResponse.Hour) {
 
 @Composable
 fun NextForecast(weather: WeatherResponse) {
-    val dailyForecast = weather.forecast.forecastday
+    val dailyForecast = if (weather.forecast.forecastday.size > 1) {
+        weather.forecast.forecastday.drop(1)
+    } else {
+        emptyList()
+    }
 
     Column {
         Row(

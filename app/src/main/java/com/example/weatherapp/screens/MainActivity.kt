@@ -3,6 +3,7 @@ package com.example.weatherapp.screens
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -23,6 +24,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            enableEdgeToEdge()
             WeatherAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
@@ -32,15 +34,9 @@ class MainActivity : ComponentActivity() {
                     val navHostController = rememberNavController()
                     val viewModel = hiltViewModel<WeatherViewModel>()
                     val state = viewModel.state
-                    Navigation(Screen.WeatherScreen)
-                   // WeatherScreen()
-                    //SearchScreen(onSearchExited = {}, onDataFetched = {})
+                    Navigation()
                 }
             }
         }
     }
 }
-// Constants
-const val API_KEY = "2454812aae6243599b973140251901"
-
-const val LOCATION_API_KEY = "AIzaSyBhytTwYT9Tq6hK6Q2enkbyVA9xPijQtrU"

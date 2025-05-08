@@ -5,19 +5,19 @@ import com.example.weatherapp.di.LocationRetrofit
 import com.example.weatherapp.di.WeatherRetrofit
 import com.example.weatherapp.model.GeocodingResponse
 import com.example.weatherapp.model.WeatherResponse
-import com.example.weatherapp.screens.API_KEY
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class WeatherRepositoryImpl @Inject constructor(@WeatherRetrofit private val weatherApi: WeatherApi,
-                                                @LocationRetrofit private val locationApi: LocationApi
+class WeatherRepositoryImpl @Inject constructor(
+    @WeatherRetrofit private val weatherApi: WeatherApi,
+    @LocationRetrofit private val locationApi: LocationApi
 ) : WeatherRepository {
     override suspend fun getWeather(key: String, city: String): Result<WeatherResponse> {
         return try {
             Log.d("FetchData", "API calling with key: $key and city: $city")
-            val response = weatherApi.getWeather(key, city, "10")
+            val response = weatherApi.getWeather(key, city, "4")
             Log.d("FetchData", "Response Code: ${response.code()} - ${response.message()}")
 
             if (response.isSuccessful) {

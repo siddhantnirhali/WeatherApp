@@ -15,11 +15,11 @@ This is a simple weather application that provides current weather information a
 
 *   **Screenshot 1:** The main screen showing the current weather for a searched location.
 
-[//]: # <img src="screenshots/currentcityweather.png" height="480" />
+[//]: # <img src="screenshots/nextforecast.png" height="480" />
 
 *   **Screenshot 2:** The forecast screen displaying upcoming weather conditions.
 
-[//]: # (Insert Screenshot 3: Search Screen here)
+[//]: # <img src="screenshots/searchprediction.png" height="480" />
 
 *   **Screenshot 3:** The search screen where users can enter a location.
 
